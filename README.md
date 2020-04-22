@@ -3,7 +3,7 @@ MIddleware para Servidor Horse para Controle de Etags
 
 CLIQUE NA IMAGEM ABAIXO PARA ASSISTIR O VIDEO DE DEMONSTRAÇÃO
 
-[![Watch the video](https://img.youtube.com/vi/3sx5resW8qM/maxresdefault.jpg)](https://www.youtube.com/3sx5resW8qM)
+[![Watch the video](https://img.youtube.com/vi/3sx5resW8qM/maxresdefault.jpg)](https://www.youtube.com/watch?v=3sx5resW8qM)
 
 Sample Horse Server
 ```delphi
