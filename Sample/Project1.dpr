@@ -18,7 +18,7 @@ begin
   App.Get('ping',
   procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
 	begin
-    Res.Send<TJsonObject>(TJsonObject.Create.AddPair('Teste', 'Teste'));
+    Res.Send<TJsonObject>(TJsonObject.Create.AddPair('Teste', 'Teste1'));
   end);
 
   App.Start;
