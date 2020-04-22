@@ -12,13 +12,14 @@ var
 begin
   App := THorse.Create(9000);
 
+  App.Use(Jhonson);
   App.Use(eTag);
 
-  App.Post('ping',
-    procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+  App.Get('ping',
+  procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
 	begin
-      Res.Send('Result');
-    end);
+    Res.Send<TJsonObject>(TJsonObject.Create.AddPair('Teste', 'Teste'));
+  end);
 
   App.Start;
 end.
