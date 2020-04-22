@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2020/04/21 21:38:04.899,=rtl.dcp</Transaction>
+    <Transaction>2020/04/21 21:38:53.059,D:\Projetos\Componentes\Horse-Etag\HorseEtag.dproj=C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2020/04/21 21:39:04.511,=D:\Projetos\Componentes\Horse-Etag\Unit2.pas</Transaction>
+    <Transaction>2020/04/21 21:39:17.344,D:\Projetos\Componentes\Horse-Etag\src\Horse.Etag.pas=D:\Projetos\Componentes\Horse-Etag\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>
