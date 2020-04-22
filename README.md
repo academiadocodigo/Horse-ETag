@@ -1,7 +1,7 @@
 # Horse-ETag
 MIddleware para Servidor Horse para Controle de Etags
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3sx5resW8qM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/3sx5resW8qM/maxresdefault.jpg)](https://www.youtube.com/embed/3sx5resW8qM)
 
 Sample Horse Server
 ```delphi
