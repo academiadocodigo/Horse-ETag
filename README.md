@@ -16,6 +16,7 @@ begin
 
   App.Post('ping',
     procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+	begin
       Res.Send('Result');
     end);
 
