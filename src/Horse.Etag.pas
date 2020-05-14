@@ -16,7 +16,6 @@ implementation
 
 procedure eTag(Req: THorseRequest; Res: THorseResponse; Next: TProc); overload;
 var
-  LWebResponse: TWebResponse;
   LContent: TObject;
   Hash: TIdHashMessageDigest5;
   eTag: String;
@@ -24,7 +23,6 @@ begin
   try
     Next;
   finally
-    LWebResponse := THorseHackResponse(Res).GetWebResponse;
     LContent := THorseHackResponse(Res).GetContent;
 
     if Assigned(LContent) and LContent.InheritsFrom(TJSONValue) then
