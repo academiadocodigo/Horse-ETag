@@ -5,6 +5,7 @@ interface
 uses
   System.SysUtils,
   Horse,
+  Horse.Commons,
   System.Classes,
   System.JSON,
   Web.HTTPApp,
@@ -36,7 +37,7 @@ begin
     end;
 
     if (Req.Headers['If-None-Match'] = eTag) and (eTag <> '') then
-      Res.Status(304);
+      Res.Status(THTTPStatus.NotModified);
 
     THorseHackResponse(Res).GetWebResponse.SetCustomHeader('ETag', eTag);
   end;
