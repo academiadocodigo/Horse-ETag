@@ -12,15 +12,14 @@ uses
 
 procedure eTag(Req: THorseRequest; Res: THorseResponse; Next: TProc); overload;
 
-
 implementation
 
 procedure eTag(Req: THorseRequest; Res: THorseResponse; Next: TProc); overload;
 var
   LWebResponse: TWebResponse;
   LContent: TObject;
-  Hash : TIdHashMessageDigest5;
-  eTag : String;
+  Hash: TIdHashMessageDigest5;
+  eTag: String;
 begin
   try
     Next;
@@ -38,13 +37,11 @@ begin
       end;
     end;
 
-     if (Req.Headers['If-None-Match'] = eTag) and (eTag <> '') then
+    if (Req.Headers['If-None-Match'] = eTag) and (eTag <> '') then
       Res.Status(304);
 
     THorseHackResponse(Res).GetWebResponse.SetCustomHeader('ETag', eTag);
-
   end;
-
 end;
 
 end.
