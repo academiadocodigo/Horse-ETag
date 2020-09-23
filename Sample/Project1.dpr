@@ -6,20 +6,16 @@ uses
   Horse.Jhonson,
   System.JSON;
 
-var
-  App: THorse;
-
 begin
-  App := THorse.Create(9000);
+  THorse
+    .Use(Jhonson)
+    .Use(eTag);
 
-  App.Use(Jhonson);
-  App.Use(eTag);
+  THorse.Get('ping',
+    procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
+    begin
+      Res.Send<TJsonObject>(TJsonObject.Create.AddPair('Teste', 'Teste1'));
+    end);
 
-  App.Get('ping',
-  procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
-	begin
-    Res.Send<TJsonObject>(TJsonObject.Create.AddPair('Teste', 'Teste1'));
-  end);
-
-  App.Start;
+  THorse.Listen(9000);
 end.
