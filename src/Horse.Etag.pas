@@ -39,7 +39,7 @@ begin
       end;
     end;
 
-    if (Req.Headers['If-None-Match'] = eTag) and                                                              (eTag <> '') then
+    if (Req.Headers['If-None-Match'] = eTag) and (eTag <> '') then
       Res.Status(THTTPStatus.NotModified);
 
     THorseHackResponse(Res).RawWebResponse.SetCustomHeader('ETag', eTag);
