@@ -27,7 +27,7 @@ begin
   try
     Next;
   finally
-    LContent := THorseHackResponse(Res).GetContent;
+    LContent := Res.Content;
 
     if Assigned(LContent) and LContent.InheritsFrom({$IF DEFINED(FPC)}TJSONData{$ELSE}TJSONValue{$ENDIF}) then
     begin
@@ -42,7 +42,7 @@ begin
     if (Req.Headers['If-None-Match'] = eTag) and                                                              (eTag <> '') then
       Res.Status(THTTPStatus.NotModified);
 
-    THorseHackResponse(Res).GetWebResponse.SetCustomHeader('ETag', eTag);
+    Res.RawWebResponse.SetCustomHeader('ETag', eTag);
   end;
 end;
 
