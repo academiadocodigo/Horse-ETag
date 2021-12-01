@@ -1,18 +1,24 @@
 unit Horse.Etag;
 
 {$IF DEFINED(FPC)}
-{$MODE DELPHI}{$H+}
+  {$MODE DELPHI}{$H+}
 {$ENDIF}
 
 interface
 
 uses
+  Horse,
+  Horse.Commons,
   {$IF DEFINED(FPC)}
-    fpjson, md5,
+    md5,
+    fpjson;
   {$ELSE}
-    System.SysUtils, System.Classes, System.JSON, Web.HTTPApp, IdHashMessageDigest,
+    System.SysUtils,
+    System.Classes,
+    System.JSON,
+    Web.HTTPApp,
+    IdHashMessageDigest;
   {$ENDIF}
-  Horse, Horse.Commons;
 
 procedure eTag(Req: THorseRequest; Res: THorseResponse; Next: {$IF DEFINED(FPC)}TNextProc{$ELSE}TProc{$ENDIF});
 
@@ -33,7 +39,7 @@ begin
 
     if Assigned(LContent) and LContent.InheritsFrom({$IF DEFINED(FPC)}TJSONData{$ELSE}TJSONValue{$ENDIF}) then
     begin
-      {$IFNDEF DEFINED(FPC)}
+      {$IF DEFINED(FPC)}
       eTag := MD5Print(MD5String(TJSONData(LContent).ToString));
       {$ELSE}
       Hash := TIdHashMessageDigest5.Create;
