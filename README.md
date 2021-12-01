@@ -1,6 +1,5 @@
 # eTag
 <b>eTag</b> is not an official middleware. It was created to facilitate working with eTag using the <a href="https://github.com/HashLoad/horse">Horse</a> framework.
-
 <br>We created a channel on Telegram for questions and support:<br><br>
 <a href="https://t.me/hashload">
   <img src="https://img.shields.io/badge/telegram-join%20channel-7289DA?style=flat-square">
