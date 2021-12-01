@@ -38,7 +38,7 @@ begin
       {$ELSE}
       Hash := TIdHashMessageDigest5.Create;
       try
-        eTag := Hash.HashStringAsHex({$IF DEFINED(FPC)}TJSONData{$ELSE}TJSONValue{$ENDIF}(LContent).ToString);
+        eTag := Hash.HashStringAsHex(TJSONValue(LContent).ToString);
       finally
         Hash.Free;
       end;
