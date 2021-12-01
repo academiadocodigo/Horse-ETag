@@ -1,11 +1,27 @@
-# Horse-ETag
-MIddleware para Servidor Horse para Controle de Etags
+# eTag
+<b>eTag</b> is not an official middleware. It was created to facilitate working with eTag using the <a href="https://github.com/HashLoad/horse">Horse</a> framework.
 
-CLIQUE NA IMAGEM ABAIXO PARA ASSISTIR O VIDEO DE DEMONSTRAÇÃO
+<br>We created a channel on Telegram for questions and support:<br><br>
+<a href="https://t.me/hashload">
+  <img src="https://img.shields.io/badge/telegram-join%20channel-7289DA?style=flat-square">
+</a>
 
-[![Watch the video](https://img.youtube.com/vi/3sx5resW8qM/maxresdefault.jpg)](https://www.youtube.com/watch?v=3sx5resW8qM)
+## ⚙️ Installation
+Installation is done using the [`boss install`](https://github.com/HashLoad/boss) command:
+``` sh
+boss install bittencourtthulio/Horse-ETag
+```
+If you choose to install manually, simply add the following folders to your project, in *Project > Options > Resource Compiler > Directories and Conditionals > Include file search path*
+```
+../Horse-ETag/src
+```
 
-Sample Horse Server
+## ✔️ Compatibility
+This middleware is compatible with projects developed in:
+- [X] Delphi
+- [X] Lazarus
+
+## ⚡️ Quickstart
 ```delphi
 uses Horse, Horse.Etag, Horse.Jhonson, System.JSON;
 
@@ -23,3 +39,6 @@ begin
   THorse.Listen(9000);
 end.
 ```
+
+## ⚠️ License
+`eTag` is free and open-source middleware licensed under the [MIT License](https://github.com/bittencourtthulio/Horse-ETag/blob/master/LICENSE). 
