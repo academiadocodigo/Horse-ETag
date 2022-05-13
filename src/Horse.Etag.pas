@@ -54,7 +54,7 @@ begin
     if (Req.Headers['If-None-Match'] = eTag) and (eTag <> '') then
     begin
       Res.Status(THTTPStatus.NotModified);
-      Res.Content(nil);
+      Res.RawWebResponse.Content := '';
     end;
 
     Res.RawWebResponse.SetCustomHeader('ETag', eTag);
