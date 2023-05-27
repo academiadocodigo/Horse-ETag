@@ -39,5 +39,9 @@ begin
 end.
 ```
 
+![image](https://github.com/academiadocodigo/Horse-ETag/assets/16382981/ed4d8553-cf5f-413c-8522-8b6c08961bb0)
+
+![image](https://github.com/academiadocodigo/Horse-ETag/assets/16382981/5a61fe20-9218-4416-bb25-c5ceca4765e9)
+
 ## ⚠️ License
 `eTag` is free and open-source middleware licensed under the [MIT License](https://github.com/bittencourtthulio/Horse-ETag/blob/master/LICENSE). 
