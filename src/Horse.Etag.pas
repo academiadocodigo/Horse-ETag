@@ -27,6 +27,7 @@ implementation
 procedure eTag(Req: THorseRequest; Res: THorseResponse; Next: {$IF DEFINED(FPC)}TNextProc{$ELSE}TProc{$ENDIF});
 var
   LContent: TObject;
+  LContentStr: String;
   {$IFNDEF FPC}
     Hash: TIdHashMessageDigest5;
   {$ENDIF}
@@ -35,21 +36,24 @@ begin
   try
     Next;
   finally
-    LContent := Res.Content;
-
-    if Assigned(LContent) and LContent.InheritsFrom({$IF DEFINED(FPC)}TJSONData{$ELSE}TJSONValue{$ENDIF}) then
+    LContentStr := Res.RawWebResponse.Content;
+    if (LContentStr.IsEmpty) then
     begin
-      {$IF DEFINED(FPC)}
-      eTag := MD5Print(MD5String(TJSONData(LContent).ToString));
-      {$ELSE}
+      LContent := Res.Content;
+      if Assigned(LContent) and LContent.InheritsFrom({$IF DEFINED(FPC)}TJSONData{$ELSE}TJSONValue{$ENDIF}) then
+        LContentStr := {$IF DEFINED(FPC)}TJSONData{$ELSE}TJSONValue{$ENDIF}(LContent).ToString;
+    end;
+
+    {$IF DEFINED(FPC)}
+      eTag := MD5Print(MD5String(LContentStr));
+    {$ELSE}
       Hash := TIdHashMessageDigest5.Create;
       try
-        eTag := Hash.HashStringAsHex(TJSONValue(LContent).ToString);
+        eTag := Hash.HashStringAsHex(LContentStr);
       finally
         Hash.Free;
       end;
-      {$ENDIF}
-    end;
+    {$ENDIF}
 
     if (Req.Headers['If-None-Match'] = eTag) and (eTag <> '') then
     begin
