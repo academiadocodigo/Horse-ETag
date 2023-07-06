@@ -40,7 +40,7 @@ begin
     if Assigned(LContent) and LContent.InheritsFrom({$IF DEFINED(FPC)}TJSONData{$ELSE}TJSONValue{$ENDIF}) then
     begin
       {$IF DEFINED(FPC)}
-      eTag := MD5Print(MD5String(TJSONData(LContent).ToString));
+      eTag := MD5Print(MD5String(TJSONData(LContent).AsJSON));
       {$ELSE}
       Hash := TIdHashMessageDigest5.Create;
       try
